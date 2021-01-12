@@ -1,0 +1,1 @@
+# obfuscator-maven-plugin
