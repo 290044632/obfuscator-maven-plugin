@@ -1,0 +1,93 @@
+{
+  "input": "",
+  "output": "",
+  "script": "function isRemappingEnabledForClass(node) {\n    return true;\n}\nfunction isObfuscatorEnabledForClass(node) {\n    return true;\n}",
+  "libraries": [],
+  "Crasher": {
+    "Enabled": false,
+    "Invalid Signatures": true,
+    "Empty annotation spam": true
+  },
+  "InvokeDynamic": {
+    "Enabled": false
+  },
+  "HWIDPRotection": {
+    "Enabled": false,
+    "HWID": "BCFC6192310C342F40243A6CB3CE7388"
+  },
+  "Optimizer": {
+    "Enabled": false,
+    "Replace String.equals()": false,
+    "Replace String.equalsIgnoreCase()": false,
+    "Optimize static string calls": false
+  },
+  "LineNumberRemover": {
+    "Enabled": true,
+    "Rename local variables": true,
+    "Remove Line Numbers": true,
+    "Remove Debug Names": true,
+    "Add Local Variables": true,
+    "New SourceFile Name": ""
+  },
+  "StringEncryption": {
+    "Enabled": true,
+    "HideStrings": false,
+    "AES": false
+  },
+  "NumberObfuscation": {
+    "Enabled": true,
+    "Extract to Array": true,
+    "Obfuscate Zero": true,
+    "Shift": false,
+    "And": false,
+    "Multiple Instructions": true
+  },
+  "ReferenceProxy": {
+    "Enabled": false
+  },
+  "ShuffleMembers": {
+    "Enabled": true
+  },
+  "InnerClassRemover": {
+    "Enabled": true,
+    "Remap": false,
+    "Remove Metadata": true
+  },
+  "NameObfuscation": {
+    "Enabled": false,
+    "Excluded classes": "me.name.Class\nme.name.*\nio.netty.**",
+    "Excluded methods": "me.name.Class.method\nme.name.Class**\nme.name.Class.*",
+    "Excluded fields": "me.name.Class.field\nme.name.Class.*\nme.name.**",
+    "Package": false,
+    "New Packages": ""
+  },
+  "General Settings": {
+    "Generator characters": "Il",
+    "Custom dictionary": false,
+    "Class Name dictionary": "",
+    "Name dictionary": "",
+    "Use STORE instead of DEFLATE (For e.g. SpringBoot)": true
+  },
+  "Packager": {
+    "Enabled": false,
+    "Use MainClass from the JAR manifest": true,
+    "Main class": "org.example.Main"
+  },
+  "FlowObfuscator": {
+    "Enabled": true,
+    "Mangle Comparisons": true,
+    "Replace GOTO": true,
+    "Replace If": true,
+    "Bad POP": true,
+    "Bad Concat": true,
+    "Mangle Switches": false,
+    "Mangle Return": false,
+    "Mangle Local Variables": false
+  },
+  "HideMembers": {
+    "Enabled": true
+  },
+  "Inlining": {
+    "Enabled": false
+  }
+}
