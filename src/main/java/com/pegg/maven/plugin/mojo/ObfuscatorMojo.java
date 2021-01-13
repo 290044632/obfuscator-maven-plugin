@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.maven.model.Build;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -22,6 +23,8 @@ import me.superblaubeere27.jobf.utils.values.Configuration;
 
 @Mojo(name = "obfus")
 public class ObfuscatorMojo extends AbstractMojo {
+
+	private static final String ORIGINAL = ".obfus.original";
 
 	@Parameter(defaultValue = "${project}", readonly = true, required = true)
 	protected MavenProject mavenProject;
@@ -90,7 +93,7 @@ public class ObfuscatorMojo extends AbstractMojo {
 				}
 			}
 			log.info("InputJar: " + inputJar);
-			log.info("OutputJar: " + outputJar);
+//			log.info("OutputJar: " + outputJar);
 
 			String script = null;
 			if (null != this.scriptFile && this.scriptFile.isFile() && this.scriptFile.exists()) {
@@ -103,10 +106,22 @@ public class ObfuscatorMojo extends AbstractMojo {
 			if (this.threads > 0 && this.threads <= Runtime.getRuntime().availableProcessors()) {
 				JObfImpl.INSTANCE.setThreadCount(threads);
 			}
-			
+
 			JObfImpl.INSTANCE.processJar(configuration);
 
 			log.info("End Obfuscator......");
+
+			File destFile = new File(inputJar + ORIGINAL);
+			if (destFile.exists()) {
+				destFile.delete();
+			}
+			FileUtils.moveFile(new File(inputJar), destFile);
+			destFile = new File(inputJar);
+			if (destFile.exists()) {
+				destFile.delete();
+			}
+			FileUtils.moveFile(new File(outputJar), destFile);
+
 		} catch (Exception e) {
 			log.error("Obfuscated file exception", e);
 		}
